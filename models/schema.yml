@@ -58,3 +58,96 @@ sources:
             description: Logistics cost associated with shipping.
           - name: ship_cost
             description: Total shipping cost (stored as a string, may need type conversion).
+
+
+
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: Google Ads campaign data including costs, impressions, and clicks.
+        columns:
+          - name: date_date
+            description: Date of campaign data.
+          - name: paid_source
+            description: Source of paid advertising.
+          - name: campaign_key
+            description: Unique identifier for the campaign.
+          - name: camPGN_name
+            description: Name of the campaign.
+          - name: ads_cost
+            description: Cost of the advertisements.
+          - name: impression
+            description: Number of impressions.
+          - name: click
+            description: Number of clicks.
+        tests:
+          - unique:
+              column_name: "(date_date|| '_' || camPGN_name )"
+
+      - name: bing
+        identifier: raw_gz_bing
+        description: Bing Ads campaign data including costs, impressions, and clicks.
+        columns:
+          - name: date_date
+            description: Date of campaign data.
+          - name: paid_source
+            description: Source of paid advertising.
+          - name: campaign_key
+            description: Unique identifier for the campaign.
+          - name: camPGN_name
+            description: Name of the campaign.
+          - name: ads_cost
+            description: Cost of the advertisements.
+          - name: impression
+            description: Number of impressions.
+          - name: click
+            description: Number of clicks.
+        tests:
+          - unique:
+              column_name: "(date_date|| '_' || camPGN_name )"
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: Criteo Ads campaign data including costs, impressions, and clicks.
+        columns:
+          - name: date_date
+            description: Date of campaign data.
+          - name: paid_source
+            description: Source of paid advertising.
+          - name: campaign_key
+            description: Unique identifier for the campaign.
+          - name: camPGN_name
+            description: Name of the campaign.
+          - name: ads_cost
+            description: Cost of the advertisements.
+          - name: impression
+            description: Number of impressions.
+          - name: click
+            description: Number of clicks.
+        tests:
+          - unique:
+              column_name: "(date_date|| '_' || camPGN_name )"
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: Facebook Ads campaign data including costs, impressions, and clicks.
+        columns:
+          - name: date_date
+            description: Date of campaign data.
+          - name: paid_source
+            description: Source of paid advertising.
+          - name: campaign_key
+            description: Unique identifier for the campaign.
+          - name: camPGN_name
+            description: Name of the campaign.
+          - name: ads_cost
+            description: Cost of the advertisements.
+          - name: impression
+            description: Number of impressions.
+          - name: click
+            description: Number of clicks.
+        tests:
+          - unique:
+              column_name: "(date_date|| '_' || camPGN_name )"
+
+
+      
