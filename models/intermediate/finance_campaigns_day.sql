@@ -1,4 +1,3 @@
-
 SELECT
 date_date
 ,operational_margin - ads_cost AS ads_margin
@@ -13,8 +12,8 @@ date_date
 ,margin
 ,shipping_fee
 ,logcost
-ship_cost
+,ship_cost
+
 FROM {{ ref('int_campaigns_day') }}
 JOIN {{ ref('finance_days') }}
 USING (date_date)
-order BY date_date DESC

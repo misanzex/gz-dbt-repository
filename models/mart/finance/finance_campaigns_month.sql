@@ -1,4 +1,5 @@
 SELECT
+
 EXTRACT (MONTH FROM date_date) AS datemonth
 ,ads_margin
 ,average_basket
