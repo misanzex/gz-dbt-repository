@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: stg_adwords
+    description: "Staging model for Google Ads data"
+    columns:
+      - name: date_date
+        description: "Date of the campaign data"
+        tests:
+          - not_null
+      - name: ads_cost
+        description: "Total advertising cost"
+      - name: ads_impression
+        description: "Total number of ad impressions"
+      - name: ads_clicks
+        description: "Total number of ad clicks"
+
+  - name: stg_bing
+    description: "Staging model for Bing Ads data"
+    columns:
+      - name: date_date
+        description: "Date of the campaign data"
+        tests:
+          - not_null
+      - name: ads_cost
+        description: "Total advertising cost"
+      - name: ads_impression
+        description: "Total number of ad impressions"
+      - name: ads_clicks
+        description: "Total number of ad clicks"
+
+  - name: stg_criteo
+    description: "Staging model for Criteo Ads data"
+    columns:
+      - name: date_date
+        description: "Date of the campaign data"
+        tests:
+          - not_null
+      - name: ads_cost
+        description: "Total advertising cost"
+      - name: ads_impression
+        description: "Total number of ad impressions"
+      - name: ads_clicks
+        description: "Total number of ad clicks"
+    
+    
+  - name: finance_campaign_days
+    description: "Staging model combining campaign and finance data"
+    columns:
+      - name: date_date
+        description: "Date of the campaign and financial data"
+        tests:
+          - not_null
+      - name: ads_margin
+        description: "Margin after subtracting advertising costs from operational margin"
+      - name: average_basket
+        description: "Average basket value"
+      - name: operational_margin
+        description: "Operational margin of the business"
+      - name: ads_cost
+        description: "Total advertising cost"
+      - name: ads_impression
+        description: "Total number of ad impressions"
+      - name: ads_clicks
+        description: "Total number of ad clicks"
+      - name: quantity
+        description: "Total number of products sold"
+      - name: revenue
+        description: "Total revenue generated"
+      - name: purchase_cost
+        description: "Total cost of purchased goods"
+      - name: margin
+        description: "Total margin after all costs"
+      - name: shipping_fee
+        description: "Shipping fees charged to customers"
+      - name: logcost
+        description: "Logistics cost"
+      - name: ship_cost
+        description: "Shipping cost incurred"
