@@ -11,6 +11,6 @@ EXTRACT (MONTH FROM date_date) AS datemonth
 ,purchase_cost
 ,margin
 ,shipping_fee
-, logcost
+,logcost
 ,ship_cost
 FROM {{ ref('finance_campaigns_day') }}

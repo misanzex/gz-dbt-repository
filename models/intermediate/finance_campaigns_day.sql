@@ -14,7 +14,6 @@ date_date
 ,shipping_fee
 ,logcost
 ship_cost
-
 FROM {{ ref('int_campaigns_day') }}
 JOIN {{ ref('finance_days') }}
 USING (date_date)
