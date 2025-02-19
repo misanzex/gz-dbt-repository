@@ -1,0 +1,60 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: Sales data from Greenweez. Each row represents a product sold within an order.
+# Freshness testing - make sure to fill in the ...
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        freshness:
+            warn_after: {count: 90, period: day}
+        columns:
+          - name: date_date
+            description: Date of purchase.
+          - name: orders_id
+            description: Unique identifier for the order.
+            tests:
+              - not_null
+          - name: pdt_id
+            description: Unique identifier for the product.
+            tests:
+              - not_null
+          - name: revenue
+            description: Revenue generated from the sale.
+          - name: quantity
+            description: Number of units sold.
+        tests:
+          - unique:
+              column_name: "(orders_id|| '_' || pdt_id)"
+
+      - name: product
+        identifier: raw_gz_product
+        description: Product catalog with pricing details.
+        columns:
+          - name: products_id
+            description: Unique identifier for each product.
+            tests:
+              - unique
+              - not_null
+          - name: purchSE_PRICE
+            description: Purchase price of the product (stored as a string, needs type conversion for calculations).
+      - name: ship
+        identifier: raw_gz_ship
+        description: Shipping details for each order, including costs and logistics.
+        columns:
+          - name: orders_id
+            description: Unique identifier for the order.
+            tests:
+              - unique
+              - not_null
+          - name: shipping_fee
+            description: Primary shipping fee for the order.
+          - name: shipping_fee_1
+            description: Additional shipping fee, if applicable.
+          - name: logCost
+            description: Logistics cost associated with shipping.
+          - name: ship_cost
+            description: Total shipping cost (stored as a string, may need type conversion).
